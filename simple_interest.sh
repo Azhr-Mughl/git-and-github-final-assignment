@@ -1,13 +1,28 @@
-# git-and-github-final-assignment
+#!/bin/bash
+# This script calculates simple interest given principal,
+# annual rate of interest and time period in years.
 
-DIR=git-and-github/assignment
-FOLDER=dumy_folder
-mkdir $FOLDER
-cd $FOLDER;
+# Do not use this in production. Sample purpose only.
 
-mkdir -p $DIR;
-for i in {1..100}; do dd if=/dev/urandom bs=1 count=1 of=$DIR/dummy-file$i.mp3; done
+# Author: Upkar Lidder (IBM)
+# Additional Authors:
+# A name
 
-aws s3 sync . s3://bucket-from-sync --profile profile_name
-rm -rf ../$FOLDER
-echo "Done dummy data!"
+# Input:
+# p, principal amount
+# t, time period in years
+# r, annual rate of interest
+
+# Output:
+# simple interest = p*t*r
+
+echo"Enter the principal:"
+read p    
+echo"Enter rate of interest per year:"
+read r    
+echo"Enter time period in years:"
+read t     
+
+s=`expr $p \* $t \* $r / 100`    
+echo"The simple interest is: "
+echo$s
